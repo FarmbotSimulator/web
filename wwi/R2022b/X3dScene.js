@@ -163,6 +163,11 @@ export default class X3dScene {
     this.render();
   }
 
+  createLoader(){
+    if (typeof this._loader === 'undefined')
+    this._loader = new Parser(this.prefix);
+  }
+
   applyPose(pose) {
     const id = pose.id;
     if (typeof WbWorld.instance === 'undefined')
@@ -228,8 +233,11 @@ export default class X3dScene {
       } else if (key === 'scale') {
         if (object instanceof WbTransform) {
           object.scale = convertStringToVec3(pose[key]);
-          if (WbWorld.instance.readyForUpdates)
+          console.log(object.scale)
+          if (WbWorld.instance.readyForUpdates){
             object.applyScaleToWren();
+          }else {
+          }
         }
       } else if (object instanceof WbPbrAppearance || object instanceof WbMaterial) {
         if (key === 'baseColor')

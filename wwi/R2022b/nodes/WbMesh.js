@@ -15,6 +15,7 @@ export default class WbMesh extends WbTriangleMeshGeometry {
   }
 
   clone(customID) {
+    if(!customID)customID=getAnId()
     this.useList.push(customID);
     const clonedMesh = new WbMesh(customID, this.url, this.ccw, this.name, this.materialIndex);
     if (this.scene)

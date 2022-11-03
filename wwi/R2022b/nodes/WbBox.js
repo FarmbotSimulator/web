@@ -9,6 +9,7 @@ export default class WbBox extends WbGeometry {
   }
 
   clone(customID) {
+    if(!customID)customID=getAnId()
     this.useList.push(customID);
     return new WbBox(customID, this.size);
   }

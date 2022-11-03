@@ -53,6 +53,7 @@ export default class WbFog extends WbBaseNode {
   }
 
   clone(customID) {
+    if(!customID)customID=getAnId()
     this.useList.push(customID);
     return new WbFog(customID, this.color, this.visibilityRange, this.fogType);
   }

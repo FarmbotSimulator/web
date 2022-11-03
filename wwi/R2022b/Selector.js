@@ -9,6 +9,7 @@ export default class Selector {
       return;
 
     const node = WbWorld.instance.nodes.get('n' + id);
+    console.log({node})
     if (typeof node === 'undefined') {
       Selector.preciseId = 'n' + id;
       Selector.previousAncestor = undefined;

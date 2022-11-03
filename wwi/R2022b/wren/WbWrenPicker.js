@@ -58,8 +58,8 @@ export default class WbWrenPicker {
     data[1] = data[1] >= 0 ? data[1] : 256 + data[1];
     data[2] = data[2] >= 0 ? data[2] : 256 + data[2];
     data[3] = data[3] >= 0 ? data[3] : 256 + data[3];
-
     const id = (data[2] << 24) | (data[1] << 16) | (data[0] << 8) | data[3];
+    console.log({id})
     if (id === 0)
       return false;
     else

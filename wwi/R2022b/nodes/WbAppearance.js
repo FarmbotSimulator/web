@@ -11,6 +11,7 @@ export default class WbAppearance extends WbAbstractAppearance {
   }
 
   clone(customID) {
+    if(!customID)customID=getAnId()
     let material, texture, transform;
     if (typeof this.material !== 'undefined') {
       material = this.material.clone(getAnId());

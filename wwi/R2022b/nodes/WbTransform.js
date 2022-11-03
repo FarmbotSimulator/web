@@ -28,7 +28,8 @@ export default class WbTransform extends WbGroup {
     _wr_transform_set_position(this.wrenNode, translation);
   }
 
-  clone(customID) {
+  clone(customID/*, x3dscene*/) {
+    if(!customID)customID=getAnId()
     const transform = new WbTransform(customID, this.translation, this.scale, this.rotation);
 
     const length = this.children.length;
@@ -36,6 +37,14 @@ export default class WbTransform extends WbGroup {
       const cloned = this.children[i].clone(getAnId());
       cloned.parent = customID;
       WbWorld.instance.nodes.set(cloned.id, cloned);
+      /*
+       let funcNameRegex = /class ([^ ]+)/;
+      if(funcNameRegex.exec(Object.getPrototypeOf(this.children[i]).constructor.toString())[1] === "WbCadShape"){
+        console.log("Wbt 42", this.children[i].scene ,this.children[i].id, cloned.id)
+        if(this.children[i].scene){ // ck
+          cloned.scene = this.children[i].scene
+        }
+      }*/
       transform.children.push(cloned);
     }
 

@@ -89,7 +89,8 @@ export default class Stream {
       if (this._view.timeout >= 0)
         this.socket.send('timeout:' + this._view.timeout);
     } else if (data.startsWith('loading:')) {
-      const info = data.replaceAll(':', ': ');
+      // const info = data.replaceAll(':', ': ');
+      const info = data.replaceAll(/:/g, ': ');
       data = data.substring(data.indexOf(':') + 1).trim();
       const message = data.substring(0, data.indexOf(':')).trim();
       let percent;

@@ -39,6 +39,7 @@ export default class WbShape extends WbBaseNode {
   }
 
   clone(customID) {
+    if(!customID)customID=getAnId()
     let geometry, appearance;
     if (typeof this.geometry !== 'undefined') {
       geometry = this.geometry.clone(getAnId());

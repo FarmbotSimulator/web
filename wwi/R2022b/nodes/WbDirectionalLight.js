@@ -25,6 +25,7 @@ export default class WbDirectionalLight extends WbLight {
   }
 
   clone(customID) {
+    if(!customID)customID=getAnId()
     this.useList.push(customID);
     return new WbDirectionalLight(customID, this.on, this.color, this.direction, this.intensity, this.castShadows,
       this.ambientIntensity);

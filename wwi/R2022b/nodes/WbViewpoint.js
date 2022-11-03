@@ -4,6 +4,7 @@ import {GtaoLevel, disableAntiAliasing} from './wb_preferences.js';
 import WbBaseNode from './WbBaseNode.js';
 import WbMatrix3 from './utils/WbMatrix3.js';
 import WbMatrix4 from './utils/WbMatrix4.js';
+import WbVector2 from './utils/WbVector2.js';
 import WbVector3 from './utils/WbVector3.js';
 import WbVector4 from './utils/WbVector4.js';
 import WbWorld from './WbWorld.js';
@@ -22,6 +23,9 @@ export default class WbViewpoint extends WbBaseNode {
     // of an object to allow a smooth reset of the viewpoint.
     // the initialOrientation and initalPosition keep the value of the initial viewpoint.
     // it is used to reset the viewpoint, when an animation, with the "viewpoint follow" feature enabled, restarts.
+    this.WbVector2 = WbVector2
+    this.WbVector3 = WbVector3
+    this.WbVector4 = WbVector4
     this.orientation = this._defaultOrientation = this._initialOrientation = orientation;
     this.position = this._defaultPosition = this._initialPosition = position;
     this.exposure = exposure;

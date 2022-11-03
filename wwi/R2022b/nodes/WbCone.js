@@ -11,6 +11,7 @@ export default class WbCone extends WbGeometry {
   }
 
   clone(customID) {
+    if(!customID)customID=getAnId()
     this.useList.push(customID);
     return new WbCone(customID, this.bottomRadius, this.height, this.subdivision, this.side, this.bottom);
   }

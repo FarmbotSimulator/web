@@ -11,6 +11,7 @@ export default class WbIndexedLineSet extends WbGeometry {
   }
 
   clone(customID) {
+    if(!customID)customID=getAnId()
     this.useList.push(customID);
     return new WbIndexedLineSet(customID, this.coord, this.coordIndex);
   }

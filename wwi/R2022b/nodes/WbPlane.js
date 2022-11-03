@@ -9,6 +9,7 @@ export default class WbPlane extends WbGeometry {
   }
 
   clone(customID) {
+    if(!customID)customID=getAnId()
     this.useList.push(customID);
     return new WbPlane(customID, this.size);
   }

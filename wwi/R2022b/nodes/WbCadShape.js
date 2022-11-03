@@ -1,15 +1,15 @@
 import WbBaseNode from './WbBaseNode.js';
 import WbImageTexture from './WbImageTexture.js';
 import WbPbrAppearance from './WbPbrAppearance.js';
-import {arrayXPointerFloat, arrayXPointerInt, getAnId} from './utils/utils.js';
+import { arrayXPointerFloat, arrayXPointerInt, getAnId } from './utils/utils.js';
 import WbMatrix4 from './utils/WbMatrix4.js';
 import WbVector3 from './utils/WbVector3.js';
 import WbVector4 from './utils/WbVector4.js';
 import WbWrenPicker from '../wren/WbWrenPicker.js';
 import WbWrenRenderingContext from '../wren/WbWrenRenderingContext.js';
-import {webots} from '../webots.js';
+import { webots } from '../webots.js';
 
-import {loadImageTextureInWren} from '../image_loader.js';
+import { loadImageTextureInWren } from '../image_loader.js';
 
 export default class WbCadShape extends WbBaseNode {
   constructor(id, urls, ccw, castShadows, isPickable, prefix) {
@@ -31,7 +31,7 @@ export default class WbCadShape extends WbBaseNode {
     }
 
     this.isCollada = this.url.endsWith('.dae');
- 
+
     this.prefix = prefix;
 
     this.ccw = ccw;
@@ -48,9 +48,14 @@ export default class WbCadShape extends WbBaseNode {
   }
 
   clone(customID) {
+    if (!customID) customID = getAnId()
     var urls = [this.url];
     urls = urls.concat(this.materials);
     const cadShape = new WbCadShape(customID, urls, this.ccw, this.castShadows, this.isPickable, this.prefix);
+    if (this.scene){
+      cadShape.scene = this.scene;
+      console.log("has scene,...", this.id, cadShape.id, this)
+    }
     this.useList.push(customID);
     return cadShape;
   }
@@ -67,8 +72,10 @@ export default class WbCadShape extends WbBaseNode {
 
     super.createWrenObjects();
 
-    if (typeof this.url === 'undefined' || this.scene === 'undefined')
+    if (typeof this.url === 'undefined' || this.scene === undefined) { // ck
+      console.log("-----------------==returning", this.id)
       return;
+    }
 
     // Assimp fix for up_axis, adapted from https://github.com/assimp/assimp/issues/849
     if (this.isCollada) { // rotate around X by 90° to swap Y and Z axis

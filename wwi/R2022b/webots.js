@@ -214,7 +214,11 @@ webots.View = class View {
 
     if (typeof this.x3dScene !== 'undefined' && typeof this.mouseEvents === 'undefined') {
       let canvas = document.getElementById('canvas');
+      const webotsView = document.getElementsByTagName('webots-view')[0];
+
       this.mouseEvents = new MouseEvents(this.x3dScene, canvas, this.mobileDevice);
+      webotsView.mouseEvents = this.mouseEvents
+      webotsView.mouseEventsExtra = new MouseEvents(this.x3dScene, canvas, this.mobileDevice);
     }
 
     initWorld();
@@ -279,7 +283,8 @@ webots.View = class View {
     labelElement.size = properties.size;
 
     if (properties.text && properties.text.includes('█')) {
-      properties.text = properties.text.replaceAll('█', '<span style="background:' + labelElement.style.color + '"> </span>');
+      // properties.text = properties.text.replaceAll('█', '<span style="background:' + labelElement.style.color + '"> </span>');
+      properties.text = properties.text.split('█').join('<span style="background:' + labelElement.style.color + '"> </span>');
       labelElement.style.zIndex = '1';
     }
 

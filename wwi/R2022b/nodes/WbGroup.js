@@ -14,6 +14,7 @@ export default class WbGroup extends WbBaseNode {
   }
 
   clone(customID) {
+    if(!customID)customID=getAnId()
     const group = new WbGroup(customID, this.isPropeller);
     const length = this.children.length;
     for (let i = 0; i < length; i++) {

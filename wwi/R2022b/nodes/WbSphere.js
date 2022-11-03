@@ -10,6 +10,7 @@ export default class WbSphere extends WbGeometry {
   }
 
   clone(customID) {
+    if(!customID)customID=getAnId()
     this.useList.push(customID);
     return new WbSphere(customID, this.radius, this.ico, this.subdivision);
   }

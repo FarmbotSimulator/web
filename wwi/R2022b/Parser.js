@@ -57,6 +57,7 @@ export default class Parser {
     WbWorld.init();
   }
 
+  
   parse(text, renderer, parent, callback) {
     webots.currentView.progress.setProgressBar('Connecting to Brian Mechanism instance...', 'same', 60 + 0.1 * 30, 'Parsing object...');
     let xml = null;
@@ -626,7 +627,6 @@ export default class Parser {
       this._updatePromiseCounter('Downloading assets: Mesh \'CadShape\'...');
     }));
     this._promiseNumber += 1;
-
     return cadShape;
   }
 
@@ -1284,7 +1284,8 @@ function convertStringToQuaternion(string) {
 }
 
 function convertStringToFloatArray(string) {
-  const stringList = string.replaceAll(',', ' ').split(/\s/).filter(element => element);
+  // const stringList = string.replaceAll(',', ' ').split(/\s/).filter(element => element);
+  const stringList = string.replace(/,/g, ' ').split(/\s/).filter(element => element);
   if (stringList)
     return stringList.map(element => parseFloat(element));
 }

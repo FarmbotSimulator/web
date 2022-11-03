@@ -45,15 +45,16 @@ export default class Toolbar {
     if (this.type !== 'animation' || typeof this._view === 'undefined' || typeof this._view.animation === 'undefined')
       return;
 
-    this._createSlider();
+    // this._createSlider();
 
     // Left part
+    /*
     this._createPlayButton();
     try {
       this._createAnimationTimeIndicator();
     } catch (error) { }
     this._checkLeftTooltips();
-
+    */
     // Right part
     this._createInfoButton();
     this._createSettings();
@@ -239,9 +240,9 @@ export default class Toolbar {
 
     let canHide;
 
-    let isPlaying = true;
-    if (document.getElementById('play-button-id') && document.getElementById('play-button-id').className !== 'icon-pause')
-      isPlaying = false;
+    // let isPlaying = true;
+    // if (document.getElementById('play-button-id') && document.getElementById('play-button-id').className !== 'icon-pause')
+    //   isPlaying = false;
 
     let settingsPane = true;
     if (typeof this.settingsPane !== 'undefined' && this.settingsPane.style.visibility !== 'hidden')
@@ -252,12 +253,12 @@ export default class Toolbar {
       gtaoPane = false;
 
     if (this.type === 'animation') {
-      const isSelected = this._timeSlider.selected();
-      let speedPane = true;
-      if (typeof this._speedPane !== 'undefined' && this._speedPane.style.visibility !== 'hidden')
-        speedPane = false;
+      // const isSelected = this._timeSlider.selected();
+      // let speedPane = true;
+      // if (typeof this._speedPane !== 'undefined' && this._speedPane.style.visibility !== 'hidden')
+      //   speedPane = false;
 
-      canHide = !isSelected && isPlaying && settingsPane && gtaoPane && speedPane;
+      // canHide = !isSelected && isPlaying && settingsPane && gtaoPane && speedPane;
     } else if (this.type === 'streaming') {
       if (document.getElementById('run-button'))
         isPlaying = isPlaying || document.getElementById('run-button-id').className === 'icon-pause';

@@ -20,12 +20,10 @@ let pose = {
     };
 
 let pose = {'id': "n84", "translation":"5,0,0" };
-
 const use = WbWorld.instance.nodes.get(object.useList[length]);
 this._applyPoseToObject(pose, use);
 
 webotsView._view.animation._view.x3dScene._applyPoseToObject(pose, use)
-
 
 
 // Moving the gantry... only works for animation....

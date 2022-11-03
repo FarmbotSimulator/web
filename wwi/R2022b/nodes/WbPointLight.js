@@ -13,6 +13,7 @@ export default class WbPointLight extends WbLight {
   }
 
   clone(customID) {
+    if(!customID)customID=getAnId()
     this.useList.push(customID);
     return new WbPointLight(customID, this.on, this.attenuation, this.color, this.intensity, this.location, this.radius,
       this.ambientIntensity, this.castShadows);

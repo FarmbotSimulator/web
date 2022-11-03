@@ -976,10 +976,6 @@ function getRobotComponentByRobotName(robotName) {
 }
 
 function initializeWebotsView(robotName) {
-  console.log(robotName)
-  console.log(robotName)
-  console.log(robotName)
-  console.log(robotName)
   if (webotsView.initializationComplete) {
     webotsView._view = new webots.View(webotsView);
     webotsView._view.branch = localSetup.branch;

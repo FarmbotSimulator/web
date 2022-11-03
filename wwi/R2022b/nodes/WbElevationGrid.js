@@ -14,6 +14,7 @@ export default class WbElevationGrid extends WbGeometry {
   }
 
   clone(customID) {
+    if(!customID)customID=getAnId()
     this.useList.push(customID);
     return new WbElevationGrid(customID, this.height, this.xDimension, this.xSpacing, this.yDimension, this.ySpacing,
       this.thickness);

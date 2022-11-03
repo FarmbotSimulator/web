@@ -18,6 +18,7 @@ export default class WbImageTexture extends WbBaseNode {
   }
 
   clone(customID) {
+    if(!customID)customID=getAnId()
     const imageTexture = new WbImageTexture(customID, this.url, this.isTransparent, this.repeatS, this.repeatT, this.filtering);
     this.useList.push(customID);
     return imageTexture;
@@ -91,7 +92,8 @@ export default class WbImageTexture extends WbBaseNode {
 
   updateUrl() {
     // we want to replace the windows backslash path separators (if any) with cross-platform forward slashes
-    this.url = this.url.replaceAll('\\', '/');
+    this.url = this.url.replace(/\\/g, '/');
+    // this.url = this.url.replaceAll('\\', '/');
 
     this._updateWrenTexture();
   }

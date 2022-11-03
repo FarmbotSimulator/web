@@ -15,6 +15,7 @@ export default class WbMaterial extends WbBaseNode {
   }
 
   clone(customID) {
+    if(!customID)customID=getAnId()
     this.useList.push(customID);
     return new WbMaterial(customID, this.ambientIntensity, this.diffuseColor, this.specularColor, this.emissiveColor,
       this.shininess, this.transparency);

@@ -248,7 +248,8 @@ export default class InformationPanel {
 
     for (let i = 0; i < arrayLength; i++) {
       let regExUrl = /(http|https)\:\/\/[a-zA-Z0-9\-\.]+\.[a-zA-Z]*(\/\S*)?/g;
-      array[i] = array[i].replaceAll(regExUrl, link => '<a href=' + link + ' target=_blank>' + link + '</a>');
+      // array[i] = array[i].replaceAll(regExUrl, link => '<a href=' + link + ' target=_blank>' + link + '</a>');
+      array[i] = array[i].replace(regExUrl, link => '<a href=' + link + ' target=_blank>' + link + '</a>');
       this.simulationText.innerHTML += '<p>' + array[i] + '</p>';
     }
   }

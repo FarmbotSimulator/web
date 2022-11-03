@@ -13,6 +13,7 @@ export default class WbCylinder extends WbGeometry {
   }
 
   clone(customID) {
+    if(!customID)customID=getAnId()
     this.useList.push(customID);
     return new WbCylinder(customID, this.radius, this.height, this.subdivision, this.bottom, this.side, this.top);
   }

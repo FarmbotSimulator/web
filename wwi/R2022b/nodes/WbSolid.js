@@ -2,7 +2,11 @@ import WbTransform from './WbTransform.js';
 
 export default class WbSolid extends WbTransform {
   clone(customID) {
+    if(!customID)customID=getAnId()
     console.error('Trying to clone a solid');
+    var newSolid = new WbSolid(customID, translation, scale, rotation);
+    this.useList.push(customID);
+    return newSolid;
   }
 
   createWrenObjects() {

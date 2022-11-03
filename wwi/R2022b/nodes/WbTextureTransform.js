@@ -11,6 +11,7 @@ export default class WbTextureTransform extends WbBaseNode {
   }
 
   clone(customID) {
+    if(!customID)customID=getAnId()
     this.useList.push(customID);
     return new WbTextureTransform(customID, this.center, this.rotation, this.scale, this.translation);
   }

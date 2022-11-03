@@ -31,6 +31,7 @@ export default class WbPbrAppearance extends WbAbstractAppearance {
   }
 
   clone(customID) {
+    if(!customID)customID=getAnId()
     let baseColorMap, roughnessMap, metalnessMap, normalMap, occlusionMap, emissiveColorMap, textureTransform;
     if (typeof this.baseColorMap !== 'undefined') {
       baseColorMap = this.baseColorMap.clone(getAnId());

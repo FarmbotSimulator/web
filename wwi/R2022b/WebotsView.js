@@ -3,6 +3,7 @@ import Toolbar from './Toolbar.js';
 import {webots} from './webots.js';
 import {changeGtaoLevel} from './nodes/wb_preferences.js';
 import WbWorld from './nodes/WbWorld.js';
+import MouseEvents from './MouseEvents.js';
 
 /* The following member variables can be set by the application:
 
@@ -21,6 +22,7 @@ webotsView.showWorldSelection  // defines whether the world selection button sho
 export default class WebotsView extends HTMLElement {
   constructor() {
     super();
+    // this.MouseEvents = MouseEvents
     this._hasAnimation = false;
     this._initialCallbackDone = false;
   }
