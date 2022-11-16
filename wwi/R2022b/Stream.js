@@ -13,7 +13,7 @@ export default class Stream {
     this.socket = new WebSocket(this.wsServer);
     const message = document.getElementById('progress-bar-message');
     const percent = message && message.innerHTML === 'Initializing...' ? 0 : 60;
-    this._view.progress.setProgressBar('block', 'Connecting to Brian Mechanism instance...', percent, 'Opening socket...');
+    this._view.progress.setProgressBar('block', 'Connecting to Brian Mechanisms instance...', percent, 'Opening socket...');
     this.socket.onopen = (event) => { this._onSocketOpen(event); };
     this.socket.onmessage = (event) => { this._onSocketMessage(event); };
     this.socket.onclose = (event) => { this._onSocketClose(event); };

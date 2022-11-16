@@ -19,7 +19,7 @@ export default class Progress {
 
     this._progressPanelTitle = document.createElement('div');
     this._progressPanelTitle.className = 'progress-panel-title';
-    this._progressPanelTitle.innerHTML = '<img src="https://cseco.co.ke/assets/images/logo.png"></img><p>Brian Mechanism</p>';
+    this._progressPanelTitle.innerHTML = '<img src="https://cseco.co.ke/assets/images/logo.png"></img><p>Brian Mechanisms</p>';
     this._progressPanelTitle.style.display = 'flex';
     this._progressPanelTitle.style.justifyContent = 'center';
     this._progressPanel.appendChild(this._progressPanelTitle);

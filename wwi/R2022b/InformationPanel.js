@@ -28,7 +28,7 @@ export default class InformationPanel {
     this.webotsPresentation = document.createElement('div');
     this.webotsPresentation.style.display = 'none';
     this.webotsPresentation.innerHTML = `
-      <h2>Brian Mechanism Simulator</h2>
+      <h2>Brian Mechanisms Simulator</h2>
       <p>For use in robot programming, control and education.</p>`;
     this.informationPanel.appendChild(this.webotsPresentation);
 

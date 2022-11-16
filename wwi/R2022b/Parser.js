@@ -59,7 +59,7 @@ export default class Parser {
 
   
   parse(text, renderer, parent, callback) {
-    webots.currentView.progress.setProgressBar('Connecting to Brian Mechanism instance...', 'same', 60 + 0.1 * 30, 'Parsing object...');
+    webots.currentView.progress.setProgressBar('Connecting to Brian Mechanisms instance...', 'same', 60 + 0.1 * 30, 'Parsing object...');
     let xml = null;
     if (window.DOMParser) {
       const parser = new DOMParser();
