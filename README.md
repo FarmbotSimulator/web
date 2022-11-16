@@ -1,2 +1,2 @@
 # web
-Assets for farmbot simulator site
+Assets for [farmbot Simulator](https://farmbotsimulator.github.io/app)
