@@ -465,12 +465,9 @@ export default class MouseEvents {
   }
 
   _selectAndHandleClick() {
-    console.log("_selectAndHandleClick:", this.picker.selectedId) //watch that variable
     if (this._state.moved === false && (!this._state.longClick || this._mobileDevice)) {
      this.Selector = Selector
       Selector.select(this.picker.selectedId);
-      console.log("inside", WbWorld.instance.nodes.get(Selector.selectedId), Selector.selectedId)
-      console.log("inside", WbWorld.instance.nodes.get(Selector.preciseId), Selector.preciseId)
 
       if (typeof WbWorld.instance.nodes.get(Selector.selectedId) !== 'undefined')
         WbWorld.instance.nodes.get(Selector.selectedId).updateBoundingObjectVisibility();

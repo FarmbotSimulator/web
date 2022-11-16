@@ -73,7 +73,6 @@ export default class Toolbar {
   }
 
   createStreamingToolbar() {
-    console.log("streaming..")
     // Left part
     this._createQuitButton();
     this._createReloadButton();
@@ -384,28 +383,19 @@ export default class Toolbar {
   }
 
   _createRobotWindowButton() {
-    console.log("Deb 1")
     if ((typeof WbWorld.instance !== 'undefined' && WbWorld.instance.readyForUpdates) || true) {
-      console.log("Deb 2", document.getElementById("robot-window-button"))
       if (! document.getElementById("robot-window-button"))
         if (true || WbWorld.instance.robots.length > 0) {
-
-          console.log("Deb 3")
           this.robotWindowButton = this._createToolBarButton('robot-window', 'Robot windows (w)');
-          console.log(this.robotWindowButton)
           // this.toolbarRight.appendChild(this.robotWindowButton);
           this.toolbarRight.prepend(this.robotWindowButton);
-          console.log(JSON.stringify(this.toolbarRight))
-          console.log(this.toolbarRight)
           this.robotWindowButton.addEventListener('mouseup', this.mouseupRefWFirst = _ => this._showAllRobotWindows(),
             { once: true });
           document.addEventListener('keydown', this.keydownRefWFirst = _ => this._robotWindowPaneKeyboardHandler(_, true),
             { once: true });
           this.keydownRefW = undefined;
           window.addEventListener('click', _ => this._closeRobotWindowPaneOnClick(_));
-          console.log(this.parentNode.showRobotWindow)
-          console.log(!(typeof this.parentNode.showRobotWindow === 'undefined' || this.parentNode.showRobotWindow))
-          if (!(typeof this.parentNode.showRobotWindow === 'undefined' || this.parentNode.showRobotWindow))
+         if (!(typeof this.parentNode.showRobotWindow === 'undefined' || this.parentNode.showRobotWindow))
             this.robotWindowButton.style.display = 'none';
           else
             this.minWidth += 44;
@@ -499,7 +489,6 @@ export default class Toolbar {
   _createRobotWindows(robotName) {
     if (robotName) this.robotName = robotName
     const robotWindowUrl = this._view.x3dScene.prefix.slice(0, -1);
-    console.log("creating robot window...", robotWindowUrl, robotName, this.robotName)
     this.robotWindows = [];
     if (typeof WbWorld.instance !== 'undefined' && WbWorld.instance.readyForUpdates) {
       WbWorld.instance.robots.forEach((robot) => {
@@ -629,7 +618,6 @@ export default class Toolbar {
     this.robotWindowButton.removeEventListener('mouseup', this.mouseupRefWFirst);
     this.mouseupRefWFirst = undefined;
     this._changeRobotWindowPaneVisibility();
-    console.log("abdasdasd", this.robotWindows)
     if (this.robotWindows)
       this.robotWindows.forEach((rw) => this._changeFloatingWindowVisibility(rw.getId()));
     this.robotWindowButton.addEventListener('mouseup', _ => this._changeRobotWindowPaneVisibility(_));

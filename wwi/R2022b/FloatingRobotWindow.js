@@ -9,7 +9,6 @@ export default class FloatingRobotWindow extends FloatingWindow {
     this.frame.id = this.name + '-robot-window';
     // this.frame.src = (this.window === '<none>') ? '' : this.url + '/robot_windows/' + this.window + '/' + this.window +
       // '.html?name=' + this.name;
-      console.log(name)
       let url_ = (this.window === '<none>') ? '' : this.url + '/robot_windows/' + this.window + '/' + this.window +
       '.html?name=' + this.name;
     // this.frame.src =  `${this.url}/${name}/${name}.html`// not live

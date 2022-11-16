@@ -527,11 +527,8 @@ var ENVIRONMENT_IS_NODE = typeof process === "object" && typeof process.versions
 var scriptDirectory = "";
 function locateFile(path) {
     if (Module["locateFile"]) {
-        console.log(530)
-        console.log(Module["locateFile"](path, scriptDirectory))
         return Module["locateFile"](path, scriptDirectory)
     }
-    // console.log(scriptDirectory + path)
     return scriptDirectory + path
 }
 var read_, readAsync, readBinary, setWindowTitle;
@@ -989,10 +986,6 @@ function isFileURI(filename) {
 var wasmBinaryFile;
 wasmBinaryFile = "wrenjs.wasm";
 wasmBinaryFile = "web/wwi/R2022b/wrenjs.wasm"; // ck
-// if (!isDataURI(wasmBinaryFile)) {
-//     console.log("NOT DATAURL")
-//     wasmBinaryFile = locateFile(wasmBinaryFile)
-// }
 function getBinary(file) {
     try {
         if (file == wasmBinaryFile && wasmBinary) {

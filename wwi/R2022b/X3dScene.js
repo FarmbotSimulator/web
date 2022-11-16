@@ -233,7 +233,6 @@ export default class X3dScene {
       } else if (key === 'scale') {
         if (object instanceof WbTransform) {
           object.scale = convertStringToVec3(pose[key]);
-          console.log(object.scale)
           if (WbWorld.instance.readyForUpdates){
             object.applyScaleToWren();
           }else {

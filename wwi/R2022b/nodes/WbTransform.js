@@ -37,14 +37,6 @@ export default class WbTransform extends WbGroup {
       const cloned = this.children[i].clone(getAnId());
       cloned.parent = customID;
       WbWorld.instance.nodes.set(cloned.id, cloned);
-      /*
-       let funcNameRegex = /class ([^ ]+)/;
-      if(funcNameRegex.exec(Object.getPrototypeOf(this.children[i]).constructor.toString())[1] === "WbCadShape"){
-        console.log("Wbt 42", this.children[i].scene ,this.children[i].id, cloned.id)
-        if(this.children[i].scene){ // ck
-          cloned.scene = this.children[i].scene
-        }
-      }*/
       transform.children.push(cloned);
     }
 
