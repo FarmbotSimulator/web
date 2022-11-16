@@ -139,7 +139,7 @@ export default class Toolbar {
 
     document.removeEventListener('fullscreenchange', this.fullscreenRef);
     this.fullscreenRef = undefined;
-    document.removeEventListener('keydown', this.keydownRefF);
+    // document.removeEventListener('keydown', this.keydownRefF);
     this.keydownRefF = undefined;
 
     window.removeEventListener('click', this._closeInfoOnClick);
@@ -944,7 +944,7 @@ export default class Toolbar {
 
     document.addEventListener('fullscreenchange', this.fullscreenRef = () =>
       onFullscreenChange(this._fullscreenButton, this._exitFullscreenButton));
-    document.addEventListener('keydown', this.keydownRefF = _ => this._fullscrenKeyboardHandler(_));
+    // document.addEventListener('keydown', this.keydownRefF = _ => this._fullscrenKeyboardHandler(_));
   }
 
   _parseMillisecondsIntoReadableTime(milliseconds) {
