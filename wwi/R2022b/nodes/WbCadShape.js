@@ -73,8 +73,11 @@ export default class WbCadShape extends WbBaseNode {
     super.createWrenObjects();
 
     if (typeof this.url === 'undefined' || this.scene === undefined) { // ck
-      console.log("-----------------==returning", this.id)
+      console.log("-----------------==returning", this.url, this.scene)
       return;
+    }
+    else {
+      console.log(`BUG1`, this.scene, this.id)
     }
 
     // Assimp fix for up_axis, adapted from https://github.com/assimp/assimp/issues/849
